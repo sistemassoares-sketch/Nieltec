@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Profissional | Rannyell Soares</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a0e27;
+            --secondary: #0f1535;
+            --cyan: #00d4ff;
+            --pink: #ff006e;
+            --text-light: #d0d8e8;
+            --border: #2a3a6a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(15, 21, 53, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        header { text-align: center; margin-bottom: 40px; }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #00f0ff, var(--cyan), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle { font-size: 1.2rem; color: var(--cyan); font-weight: 600; margin-bottom: 20px; }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .contact-info a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info a:hover { color: var(--cyan); }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #fff;
+            border-bottom: 2px solid var(--cyan);
+            padding-bottom: 5px;
+            margin: 30px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .experience-item { margin-bottom: 25px; }
+        .experience-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
+        .company { font-weight: 700; color: var(--cyan); font-size: 1.1rem; }
+        .period { font-size: 0.85rem; opacity: 0.8; }
+        .role { font-weight: 600; font-style: italic; margin-bottom: 8px; display: block; }
+
+        ul { list-style: none; }
+        ul li { position: relative; padding-left: 20px; margin-bottom: 5px; }
+        ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 10px 25px;
+            background: transparent;
+            border: 2px solid var(--cyan);
+            color: var(--cyan);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover {
+            background: var(--cyan);
+            color: var(--primary);
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.8rem; }
+            .experience-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rannyell Soares</h1>
+            <p class="subtitle">Analista de TI | Suporte Técnico | Redes & Infraestrutura</p>
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Montes Claros – MG</span>
+                <a href="https://wa.me/5538991856894" target="_blank"><i class="fab fa-whatsapp"></i> Contato via WhatsApp</a>
+                <a href="mailto:rannyell@yahoo.com"><i class="fas fa-envelope"></i> E-mail Profissional</a>
+                <a href="https://linkedin.com/in/rannyell-soares-29a762186" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </header>
+
+        <section>
+            <h2><i class="fas fa-user-tie"></i> Resumo Profissional</h2>
+            <p>Profissional de Tecnologia da Informação com sólida experiência em suporte técnico, infraestrutura e redes corporativas. Especialista em suporte níveis 1 e 2, manutenção de hardware, administração de redes e monitoramento de sistemas. Focado em eficiência operacional e resolução ágil de problemas complexos.</p>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-briefcase"></i> Experiência Profissional</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="company">GS Investimentos e Participações</span>
+                    <span class="period">Fev/2025 – Atual</span>
+                </div>
+                <span class="role">Analista de TI</span>
+                <ul>
+                    <li>Suporte técnico especializado de 1º,2º e 3° nível.</li>
+                    <li>Gestão e monitoramento de infraestrutura de rede e sistemas corporativos.</li>
+                    <li>Configuração avançada de ativos de rede e softwares empresariais.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="company">Solaris Transportes LTDA</span>
+                    <span class="period">Jul/2024 – Mar/2025</span>
+                </div>
+                <span class="role">Técnico de Manutenção de Equipamentos</span>
+                <ul>
+                    <li>Manutenção preventiva e corretiva de hardware e eletrônicos.</li>
+                    <li>Diagnóstico técnico e suporte operacional a múltiplos setores.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="company">Nettec / Nortetel</span>
+                    <span class="period">2018 – 2021</span>
+                </div>
+                <span class="role">Técnico de Suporte e Redes</span>
+                <ul>
+                    <li>Implantação de redes estruturadas e conectividade.</li>
+                    <li>Suporte técnico ao usuário final e resolução de falhas de rede.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-tools"></i> Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <ul>
+                    <li>Redes LAN/WAN, DHCP, DNS, VPN</li>
+                    <li>Roteadores, Switches e Access Points</li>
+                    <li>Cabeamento Estruturado</li>
+                    <li>Suporte N1 e N2 / Windows Corp</li>
+                </ul>
+                <ul>
+                    <li>Manutenção de Hardware</li>
+                    <li>Servidores Windows (Admin Básica)</li>
+                    <li>SQL Básico e Lógica</li>
+                    <li>Gestão de Ativos de TI</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-graduation-cap"></i> Formação</h2>
+            <ul>
+                <li><strong>Bacharelado em Sistemas de Informação</strong> – FASA</li>
+                <li><strong>Técnico em Informática</strong> – FORMA Cursos</li>
+                <li><strong>Auditor Interno ISO 9001:2015</strong> – HLG Treinamentos</li>
+            </ul>
+        </section>
+
+        <center>
+            <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Voltar para o Site</a>
+        </center>
+    </div>
+</body>
+</html>

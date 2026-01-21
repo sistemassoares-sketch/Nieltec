@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja | Nieltec Automação</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a0e27;
+            --secondary: #0f1535;
+            --tertiary: #151b3a;
+            --cyan: #00d4ff;
+            --pink: #ff006e;
+            --text-light: #d0d8e8;
+            --border: #2a3a6a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding: 40px 5%;
+        }
+
+        header { text-align: center; margin-bottom: 50px; }
+
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #00f0ff, var(--cyan), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--tertiary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--cyan);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            background: var(--secondary); /* Fundo padrão do site */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 0; /* Remove o espaço para a imagem encostar nas bordas */
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill; /* Força a imagem a preencher o quadro sem cortes */
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1); /* Efeito de zoom elegante ao passar o mouse */
+        }
+
+        .product-image i {
+            font-size: 4rem;
+            color: var(--border);
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .product-desc {
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+            min-height: 45px;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            color: var(--cyan);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .btn-buy {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, var(--cyan), var(--pink));
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .btn-buy:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 50px;
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--cyan);
+            padding: 10px 25px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover {
+            background: var(--cyan);
+            color: var(--primary);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nieltec Shop</h1>
+        <p>Escolha o que precisa e finalize o pedido pelo WhatsApp</p>
+    </header>
+
+    <div class="shop-grid" id="shopGrid">
+        <!-- Os produtos serão carregados aqui via JavaScript -->
+    </div>
+
+    <center>
+        <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Voltar ao Início</a>
+    </center>
+
+    <!-- IMPORTANTE: Carrega o arquivo de configuração dos produtos -->
+    <script src="produtos.js"></script>
+
+    <script>
+        function carregarLoja() {
+            const grid = document.getElementById('shopGrid');
+            
+            // Verifica se os dados foram carregados do arquivo produtos.js
+            if (typeof MEUS_PRODUTOS === 'undefined') {
+                grid.innerHTML = "<p style='color:red; text-align:center; width:100%;'>Erro: Arquivo 'produtos.js' não encontrado.</p>";
+                return;
+            }
+
+            grid.innerHTML = MEUS_PRODUTOS.map(p => {
+                const mensagem = encodeURIComponent(`Olá! Vi na sua loja o item "${p.nome}" e gostaria de saber mais sobre ele.`);
+                const linkWhats = `https://wa.me/${MEU_WHATSAPP}?text=${mensagem}`;
+                
+                const mediaHTML = p.imagem 
+                    ? `<img src="img/${p.imagem}" alt="${p.nome}">` 
+                    : `<i class="fas fa-box-open"></i>`;
+                
+                return `
+                    <div class="product-card">
+                        <div class="product-image">
+                            ${mediaHTML}
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h2 class="product-name">${p.nome}</h2>
+                                <p class="product-desc">${p.descricao}</p>
+                            </div>
+                            <div>
+                                <div class="product-price">${p.preco}</div>
+                                <a href="${linkWhats}" target="_blank" class="btn-buy">
+                                    <i class="fab fa-whatsapp"></i> Comprar / Info
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', carregarLoja);
+    </script>
+</body>
+</html>

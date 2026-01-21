@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configurações Básicas do Documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Description Atualizada para Nieltec -->
+    <meta name="description" content="Nieltec - Automação Inteligente, Redes e Suporte Técnico em Montes Claros - MG">
+    <!-- Título da Página Atualizado para Nieltec -->
+    <title>Nieltec | Automação & Tecnologia</title>
+    
+    <!-- Importação de Fontes (Inter) do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Importação da Biblioteca de Ícones Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos CSS Incorporados (Inline Styles) -->
+    <style>
+        /* Definição de Variáveis CSS para Cores */
+        :root {
+            --primary: #0a0e27; /* Cor principal de fundo (azul escuro) */
+            --secondary: #0f1535; /* Cor secundária de fundo */
+            --tertiary: #151b3a; /* Cor terciária para cards/elementos */
+            --cyan: #00d4ff; /* Cor de destaque ciano */
+            --pink: #ff006e; /* Cor de destaque rosa */
+            --light-cyan: #00f0ff; /* Ciano mais claro */
+            --text-light: #d0d8e8; /* Cor de texto padrão */
+            --text-dark: #ffffff; /* Cor de texto para títulos/destaques */
+            --border: #2a3a6a; /* Cor de borda */
+        }
+
+        /* Reset Básico de CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Configurações do HTML para Scroll Suave e Prevenção de Scroll Horizontal */
+        html {
+            scroll-behavior: smooth;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Estilos do Corpo da Página */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Fundo com gradiente fixo */
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background-attachment: fixed;
+            color: var(--text-light);
+            line-height: 1.6;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Estilos do Cabeçalho (Header) */
+        header {
+            background: rgba(10, 14, 39, 0.95); /* Fundo semi-transparente */
+            border-bottom: 1px solid var(--border);
+            position: fixed; /* Fixo no topo */
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px); /* Efeito de desfoque */
+            width: 100%;
+        }
+
+        /* Estilos da Barra de Navegação (Nav) */
+        nav {
+            display: flex;
+            justify-content: center; /* Centraliza os links principais */
+            align-items: center;
+            padding: 1rem 5%;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Posicionamento do Logo */
+        nav .logo {
+            position: absolute;
+            left: 5%;
+        }
+
+        /* Posicionamento dos Links de Navegação */
+        nav .nav-links {
+            position: absolute;
+            right: 5%;
+        }
+
+        /* Estilos do Logo (Texto com Gradiente) */
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--light-cyan), var(--cyan), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        /* Estilos da Lista de Links de Navegação */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        /* Estilos dos Links */
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        /* Efeito Hover nos Links */
+        .nav-links a:hover { color: var(--cyan); }
+
+        /* Estilos da Navegação Social (Ícones no Menu) */
+        .social-nav {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Estilos dos Ícones Individuais */
+        .social-nav a {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1.5px solid rgba(0, 212, 255, 0.5);
+            border-radius: 50%;
+            color: var(--cyan);
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        /* Efeito Hover nos Ícones */
+        .social-nav a:hover {
+            background: var(--cyan);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Estilos da Seção Hero (Primeira Tela) */
+        .hero {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            /* Fundo com gradiente e padrões geométricos */
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--tertiary) 100%);
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 110, 0.1) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(0,212,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            background-size: cover, cover, 80px 80px;
+            padding: 120px 5% 60px;
+        }
+
+        /* Conteúdo Central do Hero */
+        .hero-content { 
+            max-width: 1000px; 
+            text-align: center; 
+            z-index: 2;
+            width: 100%;
+        }
+
+        /* Título Principal (H1) com Gradiente */
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            background: linear-gradient(135deg, var(--light-cyan), var(--cyan), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            font-weight: 900;
+            margin-bottom: 2rem;
+        }
+
+        /* Parágrafo de Descrição do Hero */
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Contêiner dos Botões do Hero */
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        /* Estilos Gerais dos Botões (Primário) */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1.3rem 2.8rem;
+            background: linear-gradient(135deg, var(--cyan), var(--pink));
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Efeito Hover do Botão Primário */
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Estilos dos Ícones nos Botões */
+        .btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Estilos do Botão Secundário */
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--cyan);
+            color: var(--cyan);
+            box-shadow: none;
+        }
+
+        /* Efeito Hover do Botão Secundário */
+        .btn-secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Estilos da Seção Genérica */
+        .section { padding: 100px 5%; width: 100%; }
+
+        /* Títulos de Seção (H2) com Gradiente */
+        .section h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--light-cyan), var(--cyan), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+
+        /* Grid de Serviços */
+        .services-grid {
+            display: grid;
+            /* Layout responsivo com colunas de no mínimo 350px */
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            width: 100%;
+        }
+
+        /* Estilos do Card de Serviço */
+        .card {
+            background: linear-gradient(135deg, var(--tertiary), var(--secondary));
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        /* Efeito Hover no Card */
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--cyan);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.15);
+        }
+
+        /* Estilos do Ícone no Card */
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--cyan), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Título do Card */
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        /* Descrição do Card */
+        .card p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        /* Botão Pequeno dentro do Card */
+        .btn-sm {
+            padding: 0.8rem 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        /* Seção de Contato */
+        .contact {
+            background: rgba(15, 21, 53, 0.5);
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            margin: 0 5% 100px;
+            padding: 60px;
+        }
+
+        /* Grid de Contato (Informações e Formulário) */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+        }
+
+        /* Estilos dos Itens de Informação de Contato */
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Ícones na Informação de Contato */
+        .contact-info-item i {
+            font-size: 1.5rem;
+            color: var(--cyan);
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 212, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        /* Estilos do Formulário */
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        /* Estilos dos Campos de Entrada (Input e Textarea) */
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: #fff;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+
+        /* Foco nos Campos de Entrada */
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--cyan);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+        }
+
+        /* Estilos do Rodapé (Footer) */
+        footer {
+            padding: 80px 5% 40px;
+            background: var(--primary);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        /* Links Sociais no Rodapé */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Ícones Sociais no Rodapé */
+        .social-links a {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            transition: 0.3s;
+        }
+
+        /* Efeito Hover nos Ícones do Rodapé */
+        .social-links a:hover { color: var(--cyan); transform: translateY(-3px); }
+
+        /* Mensagem de Sucesso do Formulário */
+        #mensagemSucesso {
+            display: none;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Responsividade para Dispositivos Móveis */
+        @media (max-width: 992px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            nav .nav-links { display: none; } /* Esconde menu em telas menores */
+            .hero h1 { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho e Navegação -->
+    <header>
+        <nav>
+            <!-- Logo da Empresa -->
+            <a href="#" class="logo" id="logoNome">Nieltec</a>
+            
+            <!-- Links de Navegação Principal -->
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <!-- Link para a página de Portfólio -->
+                <li><a href="curriculo.html" id="linkPortfolio">Portfólio</a></li>
+                <!-- Link para Loja Externa (Dinâmico via JS) -->
+                <li><a href="loja.html" id="linkLoja">Loja</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+
+            <!-- Ícones de Redes Sociais no Menu -->
+            <div class="social-nav" id="socialNav">
+                <!-- Injetado via JavaScript -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Seção Hero (Destaque Inicial) -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <!-- Título e Descrição Dinâmicos -->
+            <h1 id="heroTitulo">Soluções em Tecnologia</h1>
+            <p id="heroDescricao">Automação, Redes e Suporte Técnico</p>
+            
+            <!-- Botões de Chamada para Ação (CTA) -->
+            <div class="hero-buttons">
+                <a href="#" class="btn" id="btnHero">
+                    <i class="fas fa-rocket"></i> Solicitar Orçamento
+                </a>
+                <a href="#services" class="btn btn-secondary">
+                    Ver Serviços
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Serviços -->
+    <section class="section" id="services">
+        <h2 id="servicosTitulo">Nossos Serviços</h2>
+        <!-- Contêiner onde os cards de serviços serão injetados -->
+        <div class="services-grid" id="servicosContainer">
+            <!-- Injetado via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section class="section" id="contact">
+        <h2 id="contatoTitulo">Fale Conosco</h2>
+        <div class="contact">
+            <div class="contact-grid">
+                <!-- Informações de Contato à Esquerda -->
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-mail</h4>
+                            <p id="contatoEmail">contato@nieltec.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <a href="#" id="linkContatoWhats" style="color: inherit; text-decoration: none;">
+                                <p id="contatoWhats">(38) 99185-6894</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Localização</h4>
+                            <p id="contatoEnd">Montes Claros - MG</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário de Contato à Direita (Usa FormSubmit) -->
+                <div>
+                    <form class="contact-form" id="formularioContato">
+                        <input type="text" name="nome" placeholder="Seu Nome" required>
+                        <input type="email" name="email" placeholder="Seu E-mail" required>
+                        <input type="text" name="assunto" placeholder="Assunto">
+                        <textarea name="mensagem" rows="5" placeholder="Como podemos ajudar?" required></textarea>
+                        <button type="submit" class="btn">Enviar Mensagem</button>
+                    </form>
+                    <!-- Mensagem exibida após o envio bem-sucedido -->
+                    <div id="mensagemSucesso">
+                        <h3>Obrigado!</h3>
+                        <p>Sua mensagem foi enviada com sucesso. Em breve entraremos em contato.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <!-- Links Sociais no Rodapé -->
+        <div class="social-links" id="socialLinks">
+            <!-- Injetado via JavaScript -->
+        </div>
+        <!-- Copyright e Créditos -->
+        <p>&copy; <span id="anoRodape"></span> <span id="nomeRodape">Nieltec</span>. <span id="textoRodape">Todos os direitos reservados.</span></p>
+    </footer>
+
+    <!-- Script JavaScript para Gerenciamento de Dados e Interatividade -->
+    <script>
+        // ====================================================================================
+        // CONFIGURAÇÃO DE DADOS DA EMPRESA
+        // Altere os valores abaixo para atualizar o conteúdo do site sem mexer no HTML.
+        // ====================================================================================
+        const DADOS_EMPRESA = {
+            empresa: {
+                nome: "Nieltec",
+                descricao: "Atendimento técnico especializado em automação inteligente, redes, formatação de computadores e suporte em geral, com foco em qualidade, clareza e confiança."
+            },
+
+            // Informações de Contato
+            contato: {
+                whatsapp: "5538991856894", // Apenas números com DDD (usado para links)
+                email: "rannyell@yahoo.com",
+                telefone_formatado: "+55 (38) 99185-6894", // Usado para exibição
+                endereco: "Atendimento em Montes Claros - MG e região",
+            },
+
+            // Links de Redes Sociais e Loja
+            links: {
+                loja: "loja.html",
+                portfolio: "curriculo.html",
+                youtube: "https://www.youtube.com/@Nieltec",
+                instagram: "https://www.instagram.com/raniel_analista?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+                twitter: "https://twitter.com/techproinfra" // Mantenha se quiser, ou remova
+            },
+
+            // Textos da Página Principal
+            textos: {
+                heroi_titulo: "Soluções em Tecnologia para o Dia a Dia",
+                heroi_descricao: "Automação inteligente, redes e suporte técnico para residências e pequenos negócios, com atendimento direto e soluções sob medida.",
+                servicos_titulo: "Serviços Prestados",
+                contato_titulo: "Entre em Contato"
+            },
+
+            // Dados do Rodapé
+            rodape: {
+                ano: new Date().getFullYear(),
+                texto: "Atendimento técnico feito com responsabilidade e transparência."
+            }
+        };
+
+        // Lista de Serviços Oferecidos
+        const SERVICOS = [
+            {
+                icone: "fas fa-laptop-medical",
+                nome: "Formatação e Suporte Técnico",
+                descricao: "Formatação de computadores, manutenção, limpeza de sistema, instalação de programas e correção de problemas.",
+                mensagem_whats: "Olá! Preciso de formatação ou suporte técnico para meu computador."
+            },
+            {
+                icone: "fas fa-network-wired",
+                nome: "Redes e Wi-Fi",
+                descricao: "Instalação e configuração de redes cabeadas e Wi-Fi residencial ou comercial, focando em estabilidade e bom alcance.",
+                mensagem_whats: "Olá! Preciso de ajuda com instalação ou melhoria da minha rede Wi-Fi."
+            },
+            {
+                icone: "fas fa-video",
+                nome: "Câmeras de Segurança",
+                descricao: "Instalação de câmeras de segurança (CFTV) com acesso remoto pelo celular.",
+                mensagem_whats: "Olá! Gostaria de instalar câmeras de segurança."
+            },
+            {
+                icone: "fas fa-house-laptop",
+                nome: "Automação Inteligente",
+                descricao: "Automação de iluminação e dispositivos, com controle por aplicativo ou comando de voz.",
+                mensagem_whats: "Olá! Quero automatizar minha casa com soluções inteligentes."
+            },
+            {
+                icone: "fas fa-server",
+                nome: "Backup e Organização de Dados",
+                descricao: "Configuração de backup local ou em nuvem para proteger arquivos e dados importantes.",
+                mensagem_whats: "Olá! Preciso de ajuda com backup e organização de dados."
+            },
+            {
+                icone: "fas fa-microchip",
+                nome: "Montagem e Upgrade de PCs",
+                descricao: "Montagem e upgrade de computadores para trabalho, estudo ou uso pessoal.",
+                mensagem_whats: "Olá! Gostaria de montar ou melhorar meu computador."
+            }
+        ];
+
+        // ====================================================================================
+        // FUNÇÃO PRINCIPAL DE CARREGAMENTO DE DADOS
+        // Esta função injeta os dados definidos acima nos elementos HTML correspondentes.
+        // ====================================================================================
+        function carregarDados() {
+            // 1. ATUALIZAÇÃO DE TEXTOS ESTÁTICOS E LINKS
+            
+            // Atualiza o link do botão principal (Hero)
+            const msgHero = encodeURIComponent("Olá! Gostaria de solicitar um orçamento.");
+            document.getElementById('btnHero').href = `https://wa.me/${DADOS_EMPRESA.contato.whatsapp}?text=${msgHero}`;
+
+            // Atualiza o nome da empresa no logo
+            document.getElementById('logoNome').textContent = DADOS_EMPRESA.empresa.nome;
+            
+            // Atualiza o título e descrição da seção Hero
+            document.getElementById('heroTitulo').textContent = DADOS_EMPRESA.textos.heroi_titulo;
+            document.getElementById('heroDescricao').textContent = DADOS_EMPRESA.textos.heroi_descricao;
+            
+            // Atualiza o título da seção de Serviços
+            document.getElementById('servicosTitulo').textContent = DADOS_EMPRESA.textos.servicos_titulo;
+            
+            // Atualiza o título da seção de Contato
+            document.getElementById('contatoTitulo').textContent = DADOS_EMPRESA.textos.contato_titulo;
+            
+            // Atualiza as informações de Contato
+            document.getElementById('contatoEmail').textContent = DADOS_EMPRESA.contato.email;
+            // Exibe o telefone formatado e atualiza o link de contato
+            document.getElementById('contatoWhats').textContent = DADOS_EMPRESA.contato.telefone_formatado;
+            const msgContato = encodeURIComponent("Olá! Gostaria de tirar uma dúvida.");
+            document.getElementById('linkContatoWhats').href = `https://wa.me/${DADOS_EMPRESA.contato.whatsapp}?text=${msgContato}`;
+            document.getElementById('contatoEnd').textContent = DADOS_EMPRESA.contato.endereco;
+            
+            // Atualiza o link da Loja e Portfólio
+            document.getElementById('linkLoja').href = DADOS_EMPRESA.links.loja;
+            document.getElementById('linkPortfolio').href = DADOS_EMPRESA.links.portfolio;
+
+            // 2. RENDERIZAÇÃO DINÂMICA DOS SERVIÇOS
+            
+            const servicosContainer = document.getElementById('servicosContainer');
+            
+            // Mapeia o array de SERVICOS para um array de strings HTML
+            servicosContainer.innerHTML = SERVICOS.map(s => {
+                // Codifica a mensagem do WhatsApp para ser usada na URL
+                const msgEncoded = encodeURIComponent(s.mensagem_whats);
+                // Cria o link completo do WhatsApp com a mensagem pré-definida
+                const linkWhats = `https://wa.me/${DADOS_EMPRESA.contato.whatsapp}?text=${msgEncoded}`;
+                
+                // Retorna o HTML do Card de Serviço
+                return `
+                <div class="card">
+                    <div>
+                        <!-- Ícone do Serviço -->
+                        <div class="card-icon"><i class="${s.icone}"></i></div>
+                        <!-- Nome do Serviço -->
+                        <h3>${s.nome}</h3>
+                        <!-- Descrição do Serviço -->
+                        <p>${s.descricao}</p>
+                    </div>
+                    <!-- Botão para Solicitar Orçamento via WhatsApp -->
+                    <a href="${linkWhats}" target="_blank" class="btn btn-sm">
+                        <i class="fas fa-whatsapp"></i>
+                        Solicitar Orçamento
+                    </a>
+                </div>
+                `;
+            }).join(''); // Junta o array de strings em uma única string HTML
+
+            // 3. RENDERIZAÇÃO DAS REDES SOCIAIS NO MENU (SOCIAL NAV)
+            
+            const socialNav = document.getElementById('socialNav');
+            // Injeta os ícones de redes sociais no cabeçalho (Sem LinkedIn)
+            socialNav.innerHTML = `
+                <a href="${DADOS_EMPRESA.links.instagram}" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="${DADOS_EMPRESA.links.youtube}" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <!-- Adiciona o ícone do WhatsApp no menu de navegação -->
+                <a href="https://wa.me/${DADOS_EMPRESA.contato.whatsapp}?text=${encodeURIComponent('Olá! Vim pelo site.')}" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            `;
+
+            // 4. RENDERIZAÇÃO DAS REDES SOCIAIS NO RODAPÉ
+            
+            const socialLinks = document.getElementById('socialLinks');
+            // Injeta os ícones de redes sociais no rodapé (Sem LinkedIn)
+            socialLinks.innerHTML = `
+                <a href="${DADOS_EMPRESA.links.instagram}" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="${DADOS_EMPRESA.links.youtube}" target="_blank"><i class="fab fa-youtube"></i></a>
+            `;
+
+            // 5. ATUALIZAÇÃO DO RODAPÉ
+            
+            // Atualiza o ano atual
+            document.getElementById('anoRodape').textContent = DADOS_EMPRESA.rodape.ano;
+            // Atualiza o nome da empresa no rodapé
+            document.getElementById('nomeRodape').textContent = DADOS_EMPRESA.empresa.nome;
+            // Atualiza o texto de descrição do rodapé
+            document.getElementById('textoRodape').textContent = DADOS_EMPRESA.rodape.texto;
+        }
+        
+        // Garante que a função carregarDados seja executada após o carregamento completo do DOM
+        document.addEventListener('DOMContentLoaded', carregarDados);
+
+        // ====================================================================================
+        // ENVIO DO FORMULÁRIO VIA FETCH API (AJAX)
+        // ====================================================================================
+        const formularioContato = document.getElementById('formularioContato');
+        const mensagemSucesso = document.getElementById('mensagemSucesso');
+        
+        if (formularioContato) {
+            formularioContato.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const formData = new FormData(formularioContato);
+                formData.append('_captcha', 'false');
+                
+                try {
+                    const response = await fetch(`https://formsubmit.co/${DADOS_EMPRESA.contato.email}`, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    if (response.ok) {
+                        formularioContato.style.display = 'none';
+                        mensagemSucesso.style.display = 'block';
+                        formularioContato.reset();
+                        setTimeout(function() {
+                            formularioContato.style.display = 'block';
+                            mensagemSucesso.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        alert('Erro ao enviar a mensagem. Por favor, tente novamente.');
+                    }
+                } catch (error) {
+                    console.error('Erro:', error);
+                    alert('Erro ao conectar ao servidor.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
